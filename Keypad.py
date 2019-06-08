@@ -20,7 +20,7 @@ for j in range (4):
 #    GPIO.output(COL[j], 1)
 while(True):
  for i in range(4):
-  print(GPIO.input(COL[i]),GPIO.input(ROW[i]))
+  print(GPIO.input(COL[i]),GPIO.input(ROW[i])) #Columna, Fila
  print(' ')
  time.sleep(1)
 #for i in range (4):
