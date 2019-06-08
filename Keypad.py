@@ -10,14 +10,14 @@ MATRIX = [ ['1','2','3','A'],
            ['*','0','#','D'] ]
 
 #definiendo los pines
-COL = ["P8_15","P8_11","P8_9","P8_7"] # C1, C2, C3, C4
+COL = ["P8_15","P8_11","P8_09","P8_07"] # C1, C2, C3, C4
 ROW = ["P8_14","P8_12","P8_10","P8_08"] # R1, R2, R3, R4
 
 #configura las salidas
 for j in range (4):
     GPIO.setup(COL[j], GPIO.IN) #Colocando columnas como salidas
     GPIO.setup(ROW[j], GPIO.IN) #Colocando filas como entradas
-#    GPIO.output(COL[j], 1)
+   #GPIO.output(COL[j], 1)
 while(True):
  print("Columna, Fila")
  for i in range(4):
