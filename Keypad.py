@@ -10,8 +10,8 @@ MATRIX = [ ['1','2','3','A'],
            ['*','0','#','D'] ]
 
 #definiendo los pines
-COL = ["P8_40","P8_42","P8_44","P8_46"] # C1, C2, C3, C4
-ROW = ["P8_39","P8_41","P8_43","P8_45"] # R1, R2, R3, R4
+COL = ["P8_15","P8_11","P8_9","P8_7"] # C1, C2, C3, C4
+ROW = ["P8_14","P8_12","P8_10","P8_08"] # R1, R2, R3, R4
 
 #configura las salidas
 for j in range (4):
