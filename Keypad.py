@@ -19,11 +19,12 @@ for j in range (4):
     GPIO.setup(ROW[j], GPIO.IN) #Colocando filas como entradas
 #    GPIO.output(COL[j], 1)
 while(True):
+ print("Columna, Fila")
  for i in range(4):
-  print("Columna, Fila")
-  print("C",i," ",GPIO.input(COL[i]),"F",i," ",GPIO.input(ROW[i])) #Columna, Fila
+  #print()
+  print("C"+str(i+1),GPIO.input(COL[i]),"F"+str(i+1),GPIO.input(ROW[i])) #Columna, Fila
  print(' ')
- time.sleep(1)
+ time.sleep(0.1)
 #for i in range (4):
 #    GPIO.setup(ROW[i], GPIO.IN, pull_up_down = GPIO.PUD_UP)
 
