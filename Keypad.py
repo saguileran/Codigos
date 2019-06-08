@@ -21,7 +21,7 @@ for j in range (4):
 while(True):
  for i in range(4):
   print("Columna, Fila")
-  print("C",i," ",GPIO.input(COL[i]),"F",i," ",GPIO.input(ROW[i])) #Columna, Fila
+  print(" ",GPIO.input(COL[i]),GPIO.input(ROW[i])) #Columna, Fila
  print(' ')
  time.sleep(1)
 #for i in range (4):
