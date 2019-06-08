@@ -10,8 +10,8 @@ MATRIX = [ ['1','2','3','A'],
            ['*','0','#','D'] ]
 
 #definiendo los pines
-COL = ["P8_40","P8_42","P8_44","P8_46"] # C3, C3, C2, C1
-ROW = ["P8_41","P8_43","P8_43","P8_45"] # R4, R3, R2, R1
+COL = ["P8_40","P8_42","P8_44","P8_46"] # C1, C2, C3, C4
+ROW = ["P8_41","P8_43","P8_43","P8_45"] # R1, R2, R3, R4
 
 #configura las salidas
 for j in range (4):
@@ -21,7 +21,7 @@ for j in range (4):
 while(True):
  for i in range(4):
   print("Columna, Fila")
-  print(GPIO.input(COL[i]),GPIO.input(ROW[i])) #Columna, Fila
+  print("C",i," ",GPIO.input(COL[i]),"F",i," ",GPIO.input(ROW[i])) #Columna, Fila
  print(' ')
  time.sleep(1)
 #for i in range (4):
