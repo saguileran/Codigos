@@ -21,3 +21,5 @@ Si se realizan desde nuestra pc no se utiliza sudo pero si se utiliza desde la B
 así que se necesario utilizar el código completo, cuando ya se ha realizado por primera vez ya no es necesario utilizar los comandos que
 tiene la palabra remote.
 Es importante realizar comentarios apropiados y que no 2 consecutivos no sean iguales, para no generar problemas.
+
+Página web con tutorial: https://help.github.com/en/articles/adding-an-existing-project-to-github-using-the-command-line
