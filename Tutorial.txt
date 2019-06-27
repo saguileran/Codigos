@@ -1,0 +1,25 @@
+Para decargar los archivos de este git se utilizan dos comados:
+
+git init   #Inicia el repositorio, se ejecuta en la carpeta donde se desea guardar el respositorio.
+git clone url_del_repositorio  #Genera una carpeta con el nombre del repositorio
+
+Estos comandos se pueden ejecutar desde una terminal o se puede hacer algo similar descargando Github Desktop en windows, 
+esta opción brinda una gran ventaja ya que permite utilizar git de una forma muy sencilla y con una interfaz gráfica muy amigable.
+
+Para subir archivos se utilizan más comandos y se debe tener permiso para hacerlo, este se da por el dueño del git,
+esto se hace mediante los siguientes comandos
+
+git init
+git add .# Adds the files in the local repository and stages them for commit. To unstage a file, use 'git reset HEAD YOUR-FILE'.
+git commit -m "First commit"   # Commits the tracked changes and prepares them to be pushed to a remote repository. To remove this commit and modify the file, use 'git reset --soft HEAD~1' and commit and add the file again.
+git remote add origin remote_repository_URL  # Sets the new remote. Nombre del repositorio al cual se dese subir los archivos
+git remote -v  #Verifica que ya se encuentre vinculado el repositorio
+git push origin master  # Pushes the changes in your local repository up to the remote repository you specified as the origin
+gir pull   #Actualiza los archivos del repositorio, este comando es opcional pero si se hace debe dar already update, lo cual significa que nuestro procedimiento se realizo con exito.
+
+Si se realizan desde nuestra pc no se utiliza sudo pero si se utiliza desde la BeagleBone si. Cada vez que la BBG se apaga olvida esto 
+así que se necesario utilizar el código completo, cuando ya se ha realizado por primera vez ya no es necesario utilizar los comandos que
+tiene la palabra remote.
+Es importante realizar comentarios apropiados y que no 2 consecutivos no sean iguales, para no generar problemas.
+
+Página web con tutorial: https://help.github.com/en/articles/adding-an-existing-project-to-github-using-the-command-line
