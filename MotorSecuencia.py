@@ -1,15 +1,15 @@
 import Adafruit_BBIO.GPIO as GPIO
 import time
 
-a="P8_8"
-b="P8_10"
-c="P8_12"
-d="P8_14"
+a="P8_40"
+b="P8_42"
+c="P8_44"
+d="P8_46"
 
-GPIO.setup("P8_8",GPIO.OUT)
-GPIO.setup("P8_10",GPIO.OUT)
-GPIO.setup("P8_12",GPIO.OUT)
-GPIO.setup("P8_14",GPIO.OUT)
+GPIO.setup("P8_40",GPIO.OUT)
+GPIO.setup("P8_42",GPIO.OUT)
+GPIO.setup("P8_44",GPIO.OUT)
+GPIO.setup("P8_46",GPIO.OUT)
 
 dt=1*10**-3
 vueltas=1  #numero de vueltas
@@ -29,7 +29,7 @@ def coilOff(pin):
 
 def alloff():
  for i in range(4):
-  j=i*2+8
+  j=i*2+40
   GPIO.output("P8_%d" % j, 0)
  return
 
@@ -52,7 +52,7 @@ def seQ4():
 
 #Define Function for direction
 #1-2-3- for anticlockwise direction
-def antiClockW():
+def clockW():
        seQ1()
        time.sleep(dt)
        seQ2()
@@ -64,7 +64,7 @@ def antiClockW():
        return
 
 #6-10-9-5 for clockwise direction
-def clockW():
+def antiClockW():
        seQ4()
        time.sleep(dt)
        seQ3()
@@ -79,15 +79,21 @@ def clockW():
 print("Python Programa for Stepper Motor")
 print(" ")
 
-for p in range((540)*vueltas):
+for p in range((520)*vueltas):
   antiClockW()
   if p%(540/pasos)==0: time.sleep(hold)
 
-for p in range((540)*vueltas):
+for p in range((560)*vueltas):
+  clockW()
+  if p%(540/pasos)==0: time.sleep(hold)
+
+for p in range((520)*vueltas):
   antiClockW()
   if p%(540/pasos)==0: time.sleep(hold)
 
-for p in range((540)*vueltas):
-  antiClockW()
+for p in range((560)*vueltas):
+  clockW()
   if p%(540/pasos)==0: time.sleep(hold)
+
+
 

@@ -15,13 +15,13 @@ def distanceMeasurement(TRIG,ECHO):   #Define una funcion que depende del trigge
     pulseDuration = pulseEnd - pulseStart   #dt
     distance = pulseDuration * 17150        #dx=dt*vs/2
     distance = round(distance, 2)           #Redondea el valor de la distancia a 2 cifras
-    return distance
+    return(distance)
 
 #Configuration
-GPIO.setup("P9_27",GPIO.OUT) #Trigger
-GPIO.setup("P9_29",GPIO.IN)  #Echo
+GPIO.setup("P9_25",GPIO.OUT) #Trigger
+GPIO.setup("P9_27",GPIO.IN)  #Echo
 
 for i in range(0,200):
-               recoveredDistance = distanceMeasurement("P9_27","P9_29")    #Calcula la distancia 
-               print "Distance1: ",recoveredDistance,"cm"
+               recoveredDistance = distanceMeasurement("P9_25","P9_27")    #Calcula la distancia 
+               print ("Distance1: ",recoveredDistance,"cm")
                time.sleep(1)

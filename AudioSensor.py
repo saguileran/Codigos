@@ -9,13 +9,12 @@ GPIO.setup(a, GPIO.IN)
 #GPIO.setup("")
 
 #value=GPIO.input(a,GPIO.IN)
-for i in range(10000):
+for i in range(20):
  print(GPIO.input("P9_13"))
-   
+ time.sleep(0.1)
 
-
+'''
  # print(value*1.8)
-  
 #GPIO.output("P9_11",0)
 
 #utilizando GPIO
@@ -46,3 +45,4 @@ for i in range(2000):
    time.sleep(1)
 print("Promedio")
 print(str(suma/20),str(round(suma0/20,2))+" dB")
+'''

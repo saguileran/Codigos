@@ -1,7 +1,7 @@
 ####Este es un tutorial del libro de Alexander Hiam pagina 45 del PDF####
 import time
 from Adafruit_BBIO import PWM
-from Notas import *
+from NotasMusicales import *
 
 led_pin = "P9_14" #Pin donde se coloca un PWM
 PWM.start(led_pin, 0, 60)   #el segundo termino es the initial duty cycle, el tercero es la frecuencia

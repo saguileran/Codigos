@@ -2,17 +2,15 @@ import Adafruit_BBIO.GPIO as GPIO
 import Adafruit_BBIO.ADC as ADC
 import decimal, time
 
-#--------MOTOR---------------
-#Pines Para el motor
-a="P8_40"
-b="P8_42"
-c="P8_44"
-d="P8_46"
-#Configurando pinde del motor
-GPIO.setup("P8_40",GPIO.OUT)
-GPIO.setup("P8_42",GPIO.OUT)
-GPIO.setup("P8_44",GPIO.OUT)
-GPIO.setup("P8_46",GPIO.OUT)
+a="P8_8"
+b="P8_10"
+c="P8_12"
+d="P8_14"
+
+GPIO.setup("P8_8",GPIO.OUT)
+GPIO.setup("P8_10",GPIO.OUT)
+GPIO.setup("P8_12",GPIO.OUT)
+GPIO.setup("P8_14",GPIO.OUT)
 
 dt=1*10**-3
 vueltas=1  #numero de vueltas
@@ -53,51 +51,47 @@ def seQ4():
 
 #Define Function for direction
 #1-2-3- for anticlockwise direction
-def antiClockW():
-       seQ1() 
-       time.sleep(dt)
-       seQ2() 	
-       time.sleep(dt)
-       seQ3() 
-       time.sleep(dt)
-       seQ4() 
-       time.sleep(dt)
+def clockW():
+       seQ1(); time.sleep(dt)
+       seQ2(); time.sleep(dt)
+       seQ3(); time.sleep(dt)
+       seQ4(); time.sleep(dt)
        return()
 
 #6-10-9-5 for clockwise direction
-def clockW():
-       seQ4()
-       time.sleep(dt)
-       seQ3() 
-       time.sleep(dt)
-       seQ2() 
-       time.sleep(dt)
-       seQ1() 
-       time.sleep(dt)
+def antiClockW():
+       seQ4(); time.sleep(dt)
+       seQ3(); time.sleep(dt)
+       seQ2(); time.sleep(dt)
+       seQ1(); time.sleep(dt)
        return()
 
-#-----------------DISTANCIA-------------
+#_________________________________________________________________________
 def distanceMeasurement(TRIG,ECHO):   #Define una funcion que depende del trigg$
 
     GPIO.output(TRIG, True)  #Inicio del pulso
     time.sleep(0.00001)
     GPIO.output(TRIG, False)
 
-    while GPIO.input(ECHO) == 0:  pulseStart = time.time()
-    while GPIO.input(ECHO) == 1:  pulseEnd = time.time()
+    while GPIO.input(ECHO) == 0:
+        pulseStart = time.time()
+    while GPIO.input(ECHO) == 1:
+        pulseEnd = time.time()
 
     pulseDuration = pulseEnd - pulseStart   #dt
     distance = pulseDuration * 17150        #dx=dt*vs/2
     distance = round(distance, 2)           #Redondea el valor de la distancia $
     return(distance)
     pulseStart = time.time()
-    while GPIO.input(ECHO) == 1: pulseEnd = time.time()
+    while GPIO.input(ECHO) == 1:
+     pulseEnd = time.time()
 
     pulseDuration = pulseEnd - pulseStart   #dt
-    distance = round(pulseDuration * 17150, 2)       #dx=dt*vs/2
+    distance = pulseDuration * 17150        #dx=dt*vs/2
+    distance = round(distance, 2)           #Redondea el valor de la distancia $
     return(distance)
 
-#--------------AUDIO-----------------
+#######Definiendo funcion de medicion de audio#############33
 pin="P9_13"
 GPIO.setup(pin, GPIO.IN)
 #ADC.setup()
@@ -106,11 +100,10 @@ def sonido(pin): return(GPIO.input(pin))
 
 
 ##Configurando pines para sonido
-tigger= "P9_25"; echo="P9_27";
+tigger= "P9_27"; echo="P9_29";
 GPIO.setup(tigger,GPIO.OUT) #Trigger
 GPIO.setup(echo,GPIO.IN) #ECHO
-def distancia(tigger,echo):  
-  return(distanceMeasurement(tigger,echo))
+def distancia(tigger,echo):  return(distanceMeasurement(tigger,echo))
 
 ###Funcion para medir temperatura
 def temperatura(pin):
@@ -124,10 +117,10 @@ def temperatura(pin):
 #############################Main code######
 n=10.0   #número de tomas
 for p in range((540)*vueltas):   #Por qué ese número por vueltas, 540?
-      antiClockW()  #Gira el motor
+      clockW()  #Gira el motor
+      sound, distance = 0,0
       if p%(540/pasos)==0:    # para si esta en 1/pasoavo
        print('Tomando medidas: ')
-       sound, distance = 0,0
        for j in range(10):
          print("Distancia: ",distancia(tigger,echo)," cm","   Sonido: ", sonido(pin))
          distance+=distancia(tigger,echo); sound+=sonido(pin)

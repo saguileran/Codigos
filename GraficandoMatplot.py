@@ -1,5 +1,5 @@
-import matplotlib
-matplotlib.use('Agg')
+#import matplotlib
+#matplotlib.use('Agg')
 #import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
@@ -15,7 +15,7 @@ ax.set(xlabel='time (s)', ylabel='voltage (mV)',
        title='About as simple as it gets, folks')
 ax.grid()
 
-fig.savefig("test.png")
+#fig.savefig("test.png")
 plt.show()
 
 ###Subplot
